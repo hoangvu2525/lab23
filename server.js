@@ -23,6 +23,7 @@ const corsOptions = {
 };
 
 const app = express();
+app.set("trust proxy", 1);
 const store = new MongoDBStore({
   uri: MOGODB_URI,
   collection: "session",
@@ -132,7 +133,7 @@ mongoose
   .then(() => {
     console.log("Connected to MongoDB!");
     app.listen(process.env.PORT, () => {
-      console.log("Server đang chạy trên cổng 5000");
+      console.log(`Server đang chạy trên cổng ${process.env.PORT}`);
     });
   })
   .catch((err) => {
