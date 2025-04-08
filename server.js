@@ -72,7 +72,8 @@ app.use(
     store: store,
     cookie: {
       httpOnly: true,
-      secure: false, // Đặt thành true nếu sử dụng HTTPS
+      secure: true, // Đặt thành true nếu sử dụng HTTPS
+      sameSite: "none", // Thêm dòng này nếu frontend/backend khác domain
     },
   })
 );
